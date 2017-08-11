@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      require(process.cwd() + '/node_modules/benja').paths();
+    </script>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" media="screen" href="css/main.css">
+    <title>RCC Control Panel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!--
+    <header>
+      <img src="img/logo-light.svg">
+      <h2>Power</h2>
+    </header>
+    <main></main>
+    <script>
+    const
+      main = document.querySelector('main'),
+      findReachableIPV4Address = () => {
+        const ni = require('os').networkInterfaces();
+        return Object.keys(ni).reduce((out, key) => {
+          return ni[key].reduce((out, iface) => {
+            if (iface.family === 'IPv4' && iface.address !== '127.0.0.1') {
+              out.push(iface.address);
+            }
+            return out;
+          }, out);
+        }, []);
+      }
+    ;
+
+    findReachableIPV4Address().forEach(function (ip) {
+      main.appendChild(
+        document.createElement('p')
+      ).textContent = require('os').hostname() + ' / ' + ip;
+    });
+
+    </script>
+  -->
+  </body>
+  <script src="bundle.js"></script>
+</html>

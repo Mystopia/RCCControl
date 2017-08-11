@@ -1,0 +1,28 @@
+{
+  "name": "RCCControl",
+  "version": "1.0.1",
+  "description": "The RCC Control Panel.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "babel": "babel",
+    "webpack": "webpack"
+  },
+  "author": "Arun Bahl",
+  "license": "MIT",
+  "dependencies": {
+    "benja": "latest"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "electron": "latest",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "tiny-cdn": "latest",
+    "webpack": "^3.5.3"
+  }
+}
