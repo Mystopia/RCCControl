@@ -11,7 +11,9 @@
   "author": "Arun Bahl",
   "license": "MIT",
   "dependencies": {
-    "benja": "latest"
+    "benja": "latest",
+    "pi-gpio": "0.0.8",
+    "react-toggle-button": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

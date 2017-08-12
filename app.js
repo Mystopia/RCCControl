@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header.js';
+import Main from './components/Main.js';
 
-var App = React.createClass({
-	render: function() {
+export default class App extends React.Component {
+	render(){
 		return (
 			<div className="App">
-				<Header />
+				<Main />
 			</div>
 		);
 	}
-});
+};
 
 ReactDOM.render(<App/>, document.getElementById('root'));

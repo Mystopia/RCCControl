@@ -42,3 +42,45 @@ img {
 	width: 15vh;
 	height: 15vh;
 }
+
+
+div#header{
+	margin-bottom: 40px;
+}
+
+ul.powercontrols{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.powercontrols li{
+	width: 100%;
+	min-width: 300px;
+	background-color: rgba(255,255,255,0.1);
+	margin: 5px;
+	padding: 15px;
+	text-align: left;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+ul.powercontrols li>div{
+	display: inline-block;
+}
+
+ul.powercontrols li div.name{
+
+}
+ul.powercontrols li div.receptacle{
+	text-transform: uppercase;
+	font-size: 10px;
+	opacity: 0.6;
+}
+ul.powercontrols li div.receptacle::before { 
+    content: "Receptacle ";
+}
+
+ul.powercontrols li div.switch{
+	float: right;
+}
