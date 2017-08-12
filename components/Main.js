@@ -2,6 +2,7 @@ const os = require("os");
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import update from 'immutability-helper';
 
 import Header from './Header.js';
 import PowerControls from './PowerControls.js';
@@ -13,65 +14,89 @@ export default class Main extends React.Component {
 		this.state = {
 			devices: [
 				{
+					id: 1,
 					name: "Freezer 1",
-					pin: 0,
-					order: 1,
-					isOn: false
+					pin: 1,
+					isOn: true
 				},
 				{
+					id: 2,
 					name: "Freezer 2",
-					pin: 0,
-					order: 2,
+					pin: 2,
 					isOn: true
 				},
 				{
+					id: 3,
 					name: "Freezer 3",
-					pin: 0,
-					order: 3,
+					pin: 3,
 					isOn: true
 				},
 				{
+					id: 4,
 					name: "Audio System",
-					pin: 0,
-					order: 4,
+					pin: 4,
 					isOn: true
 				},
 				{
+					id: 5,
 					name: "LED Wall",
-					pin: 0,
-					order: 5,
+					pin: 5,
 					isOn: true
 				},
 				{
+					id: 6,
 					name: "LED Roof",
-					pin: 0,
-					order: 6,
+					pin: 6,
 					isOn: true
 				}
 			]
 		};
 
-		this.setupGPIO();
+		this.turnOn      = this.turnOn.bind(this);
+		this.turnOff     = this.turnOff.bind(this);
 		this.togglePower = this.togglePower.bind(this);
 	}
 
 	setupGPIO(){
-		// Don't run this on desktops - pi-gpio won't work
 		if (os.arch() == 'arm'){
-			const gpio = require("pi-gpio");
+			this.rpio = require('rpio');
 		}
 	}
 
 	togglePower(device){
-		console.log("Got a click!", device);
-		//if (device.isOn)
+		if (device.isOn) this.turnOff(device);
+		else this.turnOn(device);
 	}
 
 	turnOff(device){
-		//
+		console.log("Turning off device", device.id);
+		if (this.rpio){
+			rpio.open(device.pin, rpio.INPUT);
+			console.log('Pin is currently set ' + (rpio.read(device.pin) ? 'high' : 'low'));
+			rpio.open(device.pin, rpio.OUTPUT, rpio.LOW);
+		}
+
+		// Update state
+		device.isOn = false;
+		var index = this.state.devices.findIndex(x => x.id == device.id);
+		if (index !== -1) this.setState(update(this.state.devices, {index: {$set: device }}));
 	}
 
 	turnOn(device){
+		console.log("Turning on device", device.id);
+		if (this.rpio){
+			rpio.open(device.pin, rpio.INPUT);
+			console.log('Pin is currently set ' + (rpio.read(device.pin) ? 'high' : 'low'));
+			rpio.open(device.pin, rpio.OUTPUT, rpio.HIGH);
+		}
+
+		// Update state
+		device.isOn = true;
+		var index = this.state.devices.findIndex(x => x.id == device.id);
+		if (index !== -1) this.setState(update(this.state.devices, {index: {$set: device }}));
+	}
+
+	readState(device){
 		//
 	}
 

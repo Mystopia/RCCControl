@@ -10,7 +10,7 @@ export default class PowerControls extends React.Component{
 				{this.props.devices.map(device => {
 					return(
 						<PowerControlItem 
-							key={device.order}
+							key={device.id}
 							device={device} 
 							powerButtonAction={this.props.togglePower} 
 						/>

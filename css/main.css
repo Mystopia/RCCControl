@@ -45,7 +45,7 @@ img {
 
 
 div#header{
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 }
 
 ul.powercontrols{
@@ -55,8 +55,9 @@ ul.powercontrols{
 }
 
 ul.powercontrols li{
-	width: 100%;
-	min-width: 300px;
+	display: inline-block;
+	width: 30%;
+	min-width: 200px;
 	background-color: rgba(255,255,255,0.1);
 	margin: 5px;
 	padding: 15px;
@@ -70,15 +71,16 @@ ul.powercontrols li>div{
 }
 
 ul.powercontrols li div.name{
-
+	font-weight: 300;
 }
 ul.powercontrols li div.receptacle{
 	text-transform: uppercase;
 	font-size: 10px;
 	opacity: 0.6;
+	font-weight: bold;
 }
 ul.powercontrols li div.receptacle::before { 
-    content: "Receptacle ";
+    content: "Outlet ";
 }
 
 ul.powercontrols li div.switch{
