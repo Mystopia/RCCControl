@@ -5,9 +5,9 @@ import ToggleButton from 'react-toggle-button'
 export default class PowerControlItem extends React.Component {
 	render(){
 		return(
-			<li>
+			<li onClick={(value) => {this.props.powerButtonAction(this.props.device)}}>
 				<div className="name">{this.props.device.name}
-					<div className="receptacle">{this.props.device.pin}</div>
+					<div className="receptacle">{this.props.device.outlet}</div>
 				</div>
 				<div className="switch">
 					<ToggleButton

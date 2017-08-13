@@ -22542,6 +22542,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var os = __webpack_require__(83);
 
+//
+// GPIO Pinouts
+//   Pi physical pin number: 22  18  16  15  13  12  11  07
+//       Pi GPIO pin number: 
+//                Relay IN#: 01  02  03  04  05  06  07  08
+//
+
 var Main = function (_React$Component) {
 	_inherits(Main, _React$Component);
 
@@ -22554,32 +22561,38 @@ var Main = function (_React$Component) {
 			devices: [{
 				id: 1,
 				name: "Freezer 1",
-				pin: 1,
+				pin: 22,
+				outlet: 1,
 				isOn: true
 			}, {
 				id: 2,
 				name: "Freezer 2",
-				pin: 2,
+				pin: 18,
+				outlet: 2,
 				isOn: true
 			}, {
 				id: 3,
 				name: "Freezer 3",
-				pin: 3,
+				pin: 16,
+				outlet: 3,
 				isOn: true
 			}, {
 				id: 4,
 				name: "Audio System",
-				pin: 4,
+				pin: 15,
+				outlet: 4,
 				isOn: true
 			}, {
 				id: 5,
 				name: "LED Wall",
-				pin: 5,
+				pin: 13,
+				outlet: 5,
 				isOn: true
 			}, {
 				id: 6,
 				name: "LED Roof",
-				pin: 6,
+				pin: 12,
+				outlet: 6,
 				isOn: true
 			}]
 		};
@@ -22833,7 +22846,9 @@ var PowerControlItem = function (_React$Component) {
 
 			return _react2.default.createElement(
 				'li',
-				null,
+				{ onClick: function onClick(value) {
+						_this2.props.powerButtonAction(_this2.props.device);
+					} },
 				_react2.default.createElement(
 					'div',
 					{ className: 'name' },
@@ -22841,7 +22856,7 @@ var PowerControlItem = function (_React$Component) {
 					_react2.default.createElement(
 						'div',
 						{ className: 'receptacle' },
-						this.props.device.pin
+						this.props.device.outlet
 					)
 				),
 				_react2.default.createElement(

@@ -75,7 +75,7 @@ ul.powercontrols li div.name{
 }
 ul.powercontrols li div.receptacle{
 	text-transform: uppercase;
-	font-size: 10px;
+	font-size: 9px;
 	opacity: 0.6;
 	font-weight: bold;
 }
@@ -85,4 +85,5 @@ ul.powercontrols li div.receptacle::before {
 
 ul.powercontrols li div.switch{
 	float: right;
+	margin-top: 5px;
 }
